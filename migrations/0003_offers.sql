@@ -1,0 +1,32 @@
+create table if not exists offers (
+  id text primary key,
+  user_id text not null,
+  property_id text not null,
+  kind text not null default 'informal',
+  status text not null default 'sent',
+  asking_eur integer not null,
+  offer_eur integer not null,
+  deposit_eur integer not null,
+  deposit_kind text not null default 'caparra',
+  valid_until date not null,
+  deed_by date,
+  financing text not null default 'cash',
+  furniture boolean not null default false,
+  conditions text not null default '',
+  notes_pl text,
+  counter_eur integer,
+  agent_note_it text,
+  understood boolean not null default false,
+  signed_name text,
+  signed_at timestamptz,
+  accepted_at timestamptz,
+  payment_status text not null default 'none',
+  payment_ref text,
+  payment_date text,
+  payment_verified_at timestamptz,
+  register_due date,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+create index if not exists offers_user_idx on offers (user_id, created_at desc);
+create index if not exists offers_status_idx on offers (status, created_at desc);

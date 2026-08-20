@@ -1,0 +1,14 @@
+alter table offers add column if not exists accept_deadline timestamptz;
+alter table offers add column if not exists official_requested boolean not null default false;
+alter table offers add column if not exists mortgage_eur integer;
+alter table offers add column if not exists aml_profession text;
+alter table offers add column if not exists aml_cf text;
+alter table offers add column if not exists aml_funds_origin text;
+alter table offers add column if not exists aml_origin_iban text;
+alter table offers add column if not exists aml_residence text;
+alter table offers add column if not exists second_acconto_eur integer;
+alter table offers add column if not exists second_acconto_status text not null default 'none';
+alter table offers add column if not exists second_acconto_ref text;
+alter table offers add column if not exists second_acconto_date text;
+alter table offers add column if not exists balance_status text not null default 'none';
+alter table offers add column if not exists balance_ref text;
