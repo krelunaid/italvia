@@ -33,6 +33,10 @@ App su `http://localhost:8080`. Build: `npm run build`.
 
 Stack: TanStack Start, Postgres / PGLite, Better Auth, Tailwind.
 
+## Codice
+
+Repository pubblico: https://github.com/krelunaid/italvia
+
 ## Marchio
 
 ITALVIA è un nome provvisorio. Prima dell’uso definitivo vanno verificati marchio, dominio e store.
