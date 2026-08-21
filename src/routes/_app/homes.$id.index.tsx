@@ -41,6 +41,7 @@ import { LanguageSwitch } from "@/components/language-switch";
 import { listMyOffers } from "@/lib/server/offers";
 import { pickLiveOffer, stickyLabel } from "@/lib/offer-stage";
 import { useLang } from "@/lib/i18n";
+import { BuyerValuation } from "@/components/buyer-valuation";
 
 export const Route = createFileRoute("/_app/homes/$id/")({ component: PropertyPage });
 
@@ -177,6 +178,7 @@ function PropertyPage() {
             {tx("ok.", "circa")} {formatPln(eurToPln(home.priceEur))}
           </p>
         </div>
+        <BuyerValuation propertyId={home.id} variant="peek" />
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <VoiceStory propertyId={home.id} className="[&_button]:bg-navy [&_button]:text-paper" />
           <AskChiara propertyId={home.id} />
@@ -430,6 +432,9 @@ function CostTab({ property }: { property: Property }) {
         <p className="mt-1 text-xs text-paper/70">
           {tx("ok.", "circa")} {formatPln(eurToPln(c.totalMid))}
         </p>
+      </div>
+      <div className="mt-4">
+        <BuyerValuation propertyId={property.id} variant="full" />
       </div>
       <ul className="mt-4 divide-y divide-line rounded-xl bg-paper">
         {c.lines.map((line) => (

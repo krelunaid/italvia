@@ -138,7 +138,7 @@ async function createPgliteSql(): Promise<Sql> {
       import: "default",
       eager: true,
     }) as Record<string, string>;
-    // 0006_live.sql + 0007_live_chat.sql must be in this glob.
+    // 0006_live.sql + 0007_live_chat.sql + 0008_valuation.sql must be in this glob.
     const doneRows = await pg.query<{ name: string }>(
       "select name from _migrations",
     );
